@@ -26,7 +26,7 @@ const MouseMoveAnimation = () => {
   const [imageSource, setImageSource] = useState(null)
   const index = useRef(0)
   const initialMousePosition = useRef({ x: 0, y: 0 })
-  const mouseMovedThreshold = 150
+  const mouseMovedThreshold = 200
 
   useEffect(() => {
     const container = document.querySelector(".hero")
