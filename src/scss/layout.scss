@@ -1,0 +1,53 @@
+/*--------------------------------------------------------------
+## Page Layout Styling
+--------------------------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: #030303;
+  padding: 2rem;
+  position: relative;
+  font-size: 2rem;
+  footer {
+    position: absolute;
+    bottom: 2rem;
+    width: calc(100% - 4rem);
+  }
+  header {
+    position: absolute;
+    top: 2rem;
+    width: calc(100% - 4rem);
+  }
+}
+
+.image-container {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 22;
+  top:0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+.image-wrapper {
+  max-width: 35vw;
+  max-height: 65vh;
+  pointer-events: none;
+  img{
+    pointer-events: none;
+  }
+}
