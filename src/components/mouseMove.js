@@ -9,7 +9,7 @@ const MouseMoveAnimation = () => {
         edges {
           node {
             childImageSharp {
-              fixed(quality: 50) {
+              fixed(quality: 30) {
                 src
               }
             }
@@ -26,7 +26,7 @@ const MouseMoveAnimation = () => {
   const [imageSource, setImageSource] = useState(null)
   const index = useRef(0)
   const initialMousePosition = useRef({ x: 0, y: 0 })
-  const mouseMovedThreshold = 200
+  const mouseMovedThreshold = 100
 
   useEffect(() => {
     const container = document.querySelector(".hero")
