@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+## Template Styling (Remove this when building a website)
+--------------------------------------------------------------*/
+
+body{
+  background-color: rgb(15, 15, 15);
+  color: azure;
+  font-family: sans-serif;
+  main{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+}
+.logo{
+  font-size: 4vw;
+}
