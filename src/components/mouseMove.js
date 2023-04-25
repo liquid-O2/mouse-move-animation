@@ -37,8 +37,11 @@ const MouseMoveAnimation = () => {
         const prevIndex = index.current
         index.current === images.length - 1 ? (index.current = 0) : index.current++
         initialMousePosition.current = currentMousePosition
-        imageWrappers[prevIndex].classList.add("hidden")
-        imageWrappers[index.current].classList.remove("hidden")
+
+        requestAnimationFrame(() => {
+          imageWrappers[prevIndex].classList.add("hidden")
+          imageWrappers[index.current].classList.remove("hidden")
+        })
       }
     }
 
@@ -50,7 +53,7 @@ const MouseMoveAnimation = () => {
       {images &&
         images.map((source, index) => (
           <div key={index} index={index} className='image-wrapper hidden flex justify-center align-center'>
-            <GatsbyImage image={source} className='image' placeholder='blurred' quality={20} />
+            <GatsbyImage image={source} className='image' />
           </div>
         ))}
     </div>
