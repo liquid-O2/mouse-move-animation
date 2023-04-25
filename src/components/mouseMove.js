@@ -42,7 +42,7 @@ const MouseMoveAnimation = () => {
       }
     }
 
-    container.addEventListener("mousemove", e => unhideImagesOnMouseMove(e))
+    container.addEventListener("mousemove", e => unhideImagesOnMouseMove(e), { passive: false })
   }, [images])
 
   return (
@@ -50,7 +50,7 @@ const MouseMoveAnimation = () => {
       {images &&
         images.map((source, index) => (
           <div key={index} index={index} className='image-wrapper hidden flex justify-center align-center'>
-            <GatsbyImage image={source} className='image' placeholder="blurred" quality={20} />
+            <GatsbyImage image={source} className='image' placeholder='blurred' quality={20} />
           </div>
         ))}
     </div>
