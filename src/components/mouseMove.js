@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { useEffect } from "react"
 
 const MouseMoveAnimation = () => {
@@ -10,21 +9,24 @@ const MouseMoveAnimation = () => {
         edges {
           node {
             childImageSharp {
-              gatsbyImageData
+              fixed(webpQuality: 100) {
+                srcWebp
+              }
             }
           }
         }
       }
     }
   `)
+
   const images = data.allFile.edges.map(file => {
-    return file.node.childImageSharp
+    return file.node.childImageSharp.fixed.srcWebp
   })
 
   const [imageSource, setImageSource] = useState(null)
   const index = useRef(0)
   const initialMousePosition = useRef({ x: 0, y: 0 })
-  const mouseMovedThreshold = 300
+  const mouseMovedThreshold = 150
 
   useEffect(() => {
     const container = document.querySelector(".hero")
@@ -33,17 +35,17 @@ const MouseMoveAnimation = () => {
       const distanceMoved = Math.sqrt(Math.pow(currentMousePosition.x - initialMousePosition.current.x, 2) + Math.pow(currentMousePosition.y - initialMousePosition.current.y, 2))
 
       if (distanceMoved > mouseMovedThreshold) {
-        setImageSource(images[index.current].gatsbyImageData)
+        setImageSource(images[index.current])
         index.current === images.length - 1 ? (index.current = 0) : index.current++
         initialMousePosition.current = currentMousePosition
       }
     }
     container.addEventListener("mousemove", e => changeImageSourceOnMouseMove(e))
-  }, [images])
+  }, [])
 
   return (
     <div className='image-container'>
-      <div className='image-wrapper overflow'>{<GatsbyImage image={imageSource} placeholder='blurred' quality={2} />}</div>
+      <div className='image-wrapper overflow'>{imageSource && <img src={imageSource} />}</div>
     </div>
   )
 }
