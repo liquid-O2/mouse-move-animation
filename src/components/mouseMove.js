@@ -24,7 +24,7 @@ const MouseMoveAnimation = () => {
   const [imageSource, setImageSource] = useState(null)
   const index = useRef(0)
   const initialMousePosition = useRef({ x: 0, y: 0 })
-  const mouseMovedThreshold = 200
+  const mouseMovedThreshold = 300
 
   useEffect(() => {
     const container = document.querySelector(".hero")
@@ -43,7 +43,7 @@ const MouseMoveAnimation = () => {
 
   return (
     <div className='image-container'>
-      <div className='image-wrapper overflow'>{imageSource && <GatsbyImage image={imageSource} placeholder='dominantColour' />}</div>
+      <div className='image-wrapper overflow'>{<GatsbyImage image={imageSource} placeholder='blurred' quality={2} />}</div>
     </div>
   )
 }

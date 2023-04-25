@@ -41,13 +41,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
 }
+
 .image-wrapper {
   max-width: 35vw;
-  max-height: 65vh;
+  max-height: 70vh;
   pointer-events: none;
   img{
     pointer-events: none;
+    object-fit: scale-down;
   }
 }
