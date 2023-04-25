@@ -9,8 +9,8 @@ const MouseMoveAnimation = () => {
         edges {
           node {
             childImageSharp {
-              fixed(webpQuality: 100) {
-                srcWebp
+              fixed(quality: 50) {
+                src
               }
             }
           }
@@ -20,7 +20,7 @@ const MouseMoveAnimation = () => {
   `)
 
   const images = data.allFile.edges.map(file => {
-    return file.node.childImageSharp.fixed.srcWebp
+    return file.node.childImageSharp.fixed.src
   })
 
   const [imageSource, setImageSource] = useState(null)
