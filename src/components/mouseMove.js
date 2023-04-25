@@ -41,11 +41,11 @@ const MouseMoveAnimation = () => {
       }
     }
     container.addEventListener("mousemove", e => changeImageSourceOnMouseMove(e))
-  }, [])
+  }, [images])
 
   return (
-    <div className='image-container'>
-      <div className='image-wrapper overflow'>{imageSource && <img src={imageSource} />}</div>
+    <div className='image-container flex justify-center align-center w-100 pos-abs m0'>
+      <div className='image-wrapper overflow w-100 h-100'>{imageSource && <img src={imageSource} alt='' />}</div>
     </div>
   )
 }
